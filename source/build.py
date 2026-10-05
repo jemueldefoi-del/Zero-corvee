@@ -745,6 +745,8 @@ def main():
     css = css.replace("--accent:#1f6b5c", "--accent:#2346a8").replace("--accent:#5cc2a8", "--accent:#8fa8ff")
     open(os.path.join(OUT, "style.css"), "w").write(css + EXTRA_CSS)
     open(os.path.join(OUT, "favicon.svg"), "w").write(FAVICON)
+    # Fichier de validation Google Search Console.
+    open(os.path.join(OUT, "google3a179b0f6ec352f4.html"), "w").write("google-site-verification: google3a179b0f6ec352f4.html")
     pages = {"index": home_page()}
     for c in CATEGORIES:
         pages[c["key"]] = category_page(c)
