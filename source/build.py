@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Génère le site statique Zéro Corvée (pages HTML, sitemap, robots.txt)."""
 import json, os, re, shutil, html
+from urllib.parse import quote_plus
 from content import GUIDES, CATEGORIES, SUBCATS
 from pages import STATIC_PAGES
 
@@ -121,7 +122,29 @@ def ul(items):
     return "".join(f"<li>{e(x)}</li>" for x in items)
 
 
+AMAZON_TAG = "zerocorvee-21"
+# Recherches Amazon plus précises pour les noms trop génériques.
+AMAZON_Q = {"Cosori": "Cosori airfryer", "Lefant": "Lefant robot aspirateur", "Hozelock": "Hozelock programmateur arrosage",
+            "Linktap": "Linktap programmateur arrosage", "Rouleau adhésif": "rouleau adhésif anti-poils", "Gant de toilettage": "gant de toilettage chat",
+            "Balles anti-poils": "balles anti-poils machine à laver", "Sachets nettoyants pour tambour": "nettoyant tambour poils animaux machine à laver",
+            "Robot sans fil fond seul (entrée de gamme)": "robot piscine sans fil", "Lanceur longue portée (plusieurs marques)": "lanceur balle automatique chien",
+            "Lanceur mini (plusieurs marques)": "lanceur balle automatique petit chien", "Brosse en caoutchouc pour tissus": "brosse caoutchouc anti-poils",
+            "Mijoteuse électrique (slow cooker)": "mijoteuse électrique", "iFetch": "iFetch lanceur balle"}
+
+
+def amazon(p):
+    """Lien de recherche Amazon.fr avec l'identifiant partenaire, faute d'ASIN précis par produit."""
+    q = AMAZON_Q.get(p["name"])
+    if not q:
+        q = p["name"].replace("(", " ").replace(")", " ").replace(" et autres", "").replace("…", "").replace("plusieurs marques", "")
+        if p["brand"] not in ("Plusieurs marques",) and p["brand"].split()[0].lower() not in q.lower():
+            q = f'{p["brand"]} {q}'
+    q = re.sub(r"\s+", " ", q).strip()
+    return f"https://www.amazon.fr/s?k={quote_plus(q)}&tag={AMAZON_TAG}"
+
+
 def buy(p, i, cls="btn btn-main", label="Voir le prix", page=""):
+    p = dict(p, link=p.get("link") or amazon(p))
     if p.get("link"):
         return f'<a class="{cls}" href="{e(p["link"])}" rel="sponsored nofollow noopener" target="_blank">{label}</a>'
     return f'<a class="{cls}" href="{page}#p{i+1}">{label}</a>'
