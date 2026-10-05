@@ -5,7 +5,7 @@ from content import GUIDES, CATEGORIES, SUBCATS
 from pages import STATIC_PAGES
 
 # À remplacer par le vrai nom de domaine une fois acheté.
-BASE = "https://jemueldefoi-del.github.io/zero-corvee"
+BASE = "https://jemueldefoi-del.github.io/Zero-corvee"
 SITE = "Zéro Corvée"
 UPDATED = "2026-10-04"
 UPDATED_FR = "4 octobre 2026"
