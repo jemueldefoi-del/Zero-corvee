@@ -25,7 +25,7 @@ STATIC_PAGES = [
 {"slug": "affiliation", "nav": "Affiliation", "h1": "Liens d'affiliation : comment ça marche",
  "title": "Affiliation et transparence | Zéro Corvée",
  "desc": "Zéro Corvée est financé par l'affiliation. Voici comment fonctionnent nos liens et ce que cela change pour vous.",
- "body": """<p>Certains boutons « Voir le prix » de nos guides sont des liens d'affiliation. Si vous achetez après avoir cliqué dessus, le marchand nous verse une commission.</p>
+ "body": """<p>Certains boutons « Voir sur Amazon » de nos guides sont des liens d'affiliation. Si vous achetez après avoir cliqué dessus, le marchand nous verse une commission.</p>
 <ul><li>Le prix que vous payez est exactement le même.</li><li>Aucune marque ne paie pour figurer dans nos classements ou pour obtenir une meilleure place.</li><li>Nous indiquons la présence de liens affiliés en haut de chaque guide.</li></ul>
 <p>Zéro Corvée participe au Programme Partenaires d'Amazon EU, un programme d'affiliation conçu pour permettre à des sites de percevoir une rémunération grâce à la création de liens vers Amazon.fr. En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.</p>"""},
 

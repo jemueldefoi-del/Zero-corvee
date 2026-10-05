@@ -1,0 +1,582 @@
+{
+"Roborock Qrevo S": {
+"asin": "B0CYC2GDT8",
+"title": "roborock Qrevo S robot aspirateur laveur",
+"generic": false
+},
+"Dreame L40 Ultra": {
+"asin": "B0DJNXC3MF",
+"title": "dreame L40 Ultra robot aspirateur 11000 Pa",
+"generic": false
+},
+"Xiaomi Robot Vacuum S20": {
+"asin": "B0DFCLMD8Y",
+"title": "Xiaomi Robot Vacuum S20 aspirateur balai LDS 5000 Pa",
+"generic": false
+},
+"Ecovacs Deebot T30 Omni": {
+"asin": "B0CTSV7PJL",
+"title": "ECOVACS DEEBOT T30 Omni robot aspirateur avec mini station",
+"generic": false
+},
+"Husqvarna Automower 310 Mark II": {
+"asin": "B0BWKF1VWS",
+"title": "Automower Husqvarna 310 Mark II robot tondeuse",
+"generic": false
+},
+"Gardena Sileno City": {
+"asin": "B07MXQ6YMN",
+"title": "Gardena SILENO city smart robot tondeuse 500 m2 (19200-26)",
+"generic": false
+},
+"Worx Landroid M500": {
+"asin": "B07LFPKYC1",
+"title": "WORX Landroid 500 m2 robot tondeuse connecté WR141E",
+"generic": false
+},
+"Segway Navimow i105E": {
+"asin": "B0CXDNFZLL",
+"title": "Segway Navimow i105E robot tondeuse sans fil périphérique",
+"generic": false
+},
+"Dolphin S300i": {
+"asin": "B08D4ZXQ72",
+"title": "Dolphin S300i robot de nettoyage électrique pour piscine",
+"generic": false
+},
+"Beatbot AquaSense 2 Pro": {
+"asin": "B0DNMBPL5L",
+"title": "Beatbot AquaSense 2 Pro robot de piscine sans fil",
+"generic": false
+},
+"Aiper Seagull Pro": {
+"asin": "B0CSFVSTTY",
+"title": "AIPER Seagull Pro robot piscine sols et parois",
+"generic": false
+},
+"Zodiac Tornax Pro RT 2100": {
+"asin": "B06XKFDV62",
+"title": "Zodiac RT 2100 TornaX Pro Bleu robot piscine",
+"generic": false
+},
+"Ecovacs Winbot W2 Omni": {
+"asin": "B0CSSWGHHP",
+"title": "ECOVACS W2 Omni robot lave-vitres avec station multifonctionnelle",
+"generic": false
+},
+"Hobot 2S": {
+"asin": "B09HV5NVSB",
+"title": "EZIclean Hobot 2S robot lave-vitres",
+"generic": false
+},
+"Cecotec Conga WinDroid 980 Connected": {
+"asin": "B08294V6GR",
+"title": "Cecotec WinDroid 980 Connected Conga robot nettoie-vitres",
+"generic": false
+},
+"Miele (gamme T1)": {
+"asin": "B0BNLMTHDX",
+"title": "Miele TWC364WP 9kg sèche-linge pompe à chaleur T1",
+"generic": true
+},
+"Bosch Série 6": {
+"asin": "B0DWFPLP1Y",
+"title": "Bosch WQG1420DFR Série 6 sèche-linge pompe à chaleur 9 kg",
+"generic": true
+},
+"Samsung (gamme pompe à chaleur)": {
+"asin": "B0F4DG9ZG5",
+"title": "Samsung DV90DG52A0TEEG DV5000D sèche-linge pompe à chaleur 9 kg",
+"generic": true
+},
+"Beko (gamme pompe à chaleur)": {
+"asin": "B094N3FG92",
+"title": "Beko SLBF94W0 sèche-linge pompe à chaleur 9 kg",
+"generic": true
+},
+"Bob": {
+"asin": "B08Q892MBT",
+"title": "DAAN TECH Bob lave-vaisselle compact Premium Rouge",
+"generic": false
+},
+"Midea (lave-vaisselle de table)": {
+"asin": "B097G31982",
+"title": "Midea ST 5.31 wi mini lave-vaisselle de table 42 cm",
+"generic": true
+},
+"Candy compact": {
+"asin": "B08QW951DR",
+"title": "Candy CDCP 6S mini lave-vaisselle posable",
+"generic": true
+},
+"Litter-Robot 4": {
+"asin": "B0CFTCG4B8",
+"title": "Litter-Robot 4 avec marche et barrière par Whisker, Noir",
+"generic": false
+},
+"Petkit Pura Max 2": {
+"asin": "B0D9QJZ7FG",
+"title": "PETKIT Pura Max 2 litière autonettoyante",
+"generic": false
+},
+"CATLINK Scooper": {
+"asin": "B0BCCG3QQY",
+"title": "Catlink Scooper Luxury Version litière autonettoyante",
+"generic": false
+},
+"PetSafe ScoopFree": {
+"asin": "B097PYYFZ1",
+"title": "PetSafe ScoopFree litière autonettoyante deuxième génération",
+"generic": false
+},
+"Petkit Fresh Element Solo": {
+"asin": "B0CD7P4BKT",
+"title": "PETKIT Freshelement Solo 2 avec caméra distributeur automatique",
+"generic": false
+},
+"Distributeur avec caméra (Petkit, Catlink…)": {
+"asin": "B0DMNN4CSZ",
+"title": "PETKIT distributeur automatique croquettes caméra 1080P 5L",
+"generic": true
+},
+"Xiaomi Smart Pet Food Feeder 2": {
+"asin": "B0DN9Z6P31",
+"title": "XIAOMI Smart Pet Food Feeder 2 EU XMWSQ02",
+"generic": false
+},
+"Cat Mate C500": {
+"asin": "B01AUYLVU8",
+"title": "Cat Mate C500 Distributeur Automatique 5 Repas",
+"generic": false
+},
+"Dyson V15 Detect": {
+"asin": "B0BVBQYYFV",
+"title": "Dyson V15 Detect 443099-01",
+"generic": false
+},
+"Samsung Bespoke Jet": {
+"asin": "B0CKMW8D3V",
+"title": "Samsung Bespoke Jet AI VS28C9784QK",
+"generic": false
+},
+"Shark (gamme Anti Hair Wrap)": {
+"asin": "B0839QW1CD",
+"title": "Shark DuoClean IZ201EUT Anti Hair Wrap",
+"generic": true
+},
+"Rowenta X-Force Flex": {
+"asin": "B0F1TDPCHB",
+"title": "Rowenta X-Force Flex 9.60 RH2047WO",
+"generic": false
+},
+"Tineco Floor One": {
+"asin": "B0F8QSLQLK",
+"title": "Tineco Floor One i5 Stretch",
+"generic": false
+},
+"Dreame H-series": {
+"asin": "B0B7LCMTSL",
+"title": "Dreame H12 Aspirateur laveur sans fil",
+"generic": true
+},
+"Dyson WashG1": {
+"asin": "B0DBMM565M",
+"title": "Dyson WashG1 Hard Floor Cleaner",
+"generic": false
+},
+"Kärcher FC": {
+"asin": "B08465S482",
+"title": "Kärcher FC 7 Cordless Nettoyeur sol sans fil",
+"generic": true
+},
+"Ninja Foodi Dual Zone": {
+"asin": "B08GC1QZ5W",
+"title": "Ninja Foodi DualZone AF300EU 7.6L",
+"generic": false
+},
+"Philips Airfryer": {
+"asin": "B08WJBVM5G",
+"title": "Philips Essential Airfryer XL HD9270/90",
+"generic": true
+},
+"Cosori": {
+"asin": "B07N8N6C85",
+"title": "COSORI Air Fryer 5.7 L",
+"generic": true
+},
+"Moulinex Easy Fry": {
+"asin": "B09FQBKFQ6",
+"title": "Moulinex Easy Fry & Grill EZ505810 4.6L",
+"generic": true
+},
+"Thermomix": {
+"asin": null,
+"title": "No Thermomix machine listing found on Amazon.fr (accessories only)",
+"generic": false
+},
+"Moulinex Companion": {
+"asin": "B0B77YRRZD",
+"title": "Moulinex Companion XL YY5073FG",
+"generic": true
+},
+"Kenwood Cooking Chef": {
+"asin": "B071CP2B6B",
+"title": "Kenwood Cooking Chef Gourmet KCC9060S",
+"generic": false
+},
+"Monsieur Cuisine": {
+"asin": "B09NL3BG5P",
+"title": "Monsieur Cuisine Smart SilverCrest",
+"generic": false
+},
+"Rowenta Access Steam": {
+"asin": "B08L85DM93",
+"title": "Rowenta Access Steam Minute DR7009D1",
+"generic": false
+},
+"Philips Steam&Go": {
+"asin": "B07SZW9919",
+"title": "Philips GC364/20 Steam&Go",
+"generic": false
+},
+"Défroisseur sur pied (Calor, Rowenta)": {
+"asin": "B01N146TMU",
+"title": "Rowenta IS6520D1 Master 360 défroisseur vapeur vertical",
+"generic": true
+},
+"Steamery Cirrus": {
+"asin": "B0782Z8MD4",
+"title": "Steamery Cirrus 2 défroisseur",
+"generic": false
+},
+"Bosch Série 6 lavant-séchant": {
+"asin": "B096CC1NK8",
+"title": "Bosch WNG25400FF Série 6 10/6 kg",
+"generic": false
+},
+"LG lavant-séchant": {
+"asin": "B0F2J6DP4C",
+"title": "LG F964R33WRS lave-linge séchant 9/6 kg",
+"generic": true
+},
+"Samsung lavant-séchant": {
+"asin": "B08L9KNWBC",
+"title": "Samsung WD80T4046EW Ecobubble 8/5 kg",
+"generic": true
+},
+"Haier lavant-séchant": {
+"asin": "B0CJ5SKFN5",
+"title": "Haier HWD80-B14939S8FR 8/5 kg",
+"generic": true
+},
+"Petkit Eversweet": {
+"asin": "B0B4W8FDBV",
+"title": "PETKIT EVERSWEET Solo 2 fontaine",
+"generic": false
+},
+"Catit Flower": {
+"asin": "B0146QXOB0",
+"title": "Catit Original Flower Fountain 3L",
+"generic": false
+},
+"Xiaomi Smart Pet Fountain": {
+"asin": "B0B6Q2QMVZ",
+"title": "Xiaomi Smart Pet Fountain 2L",
+"generic": false
+},
+"PetSafe Drinkwell": {
+"asin": "B001NIZAH6",
+"title": "PetSafe Drinkwell 360 fontaine 3.8L",
+"generic": false
+},
+"Kärcher K5": {
+"asin": "B08R441PZD",
+"title": "Kärcher K 5 Power Control Nettoyeur Haute Pression 145 bar",
+"generic": false
+},
+"Nilfisk Core": {
+"asin": "B08N5H1RDW",
+"title": "Nilfisk Core 140 bars avec Régulateur de Puissance",
+"generic": false
+},
+"Worx Hydroshot": {
+"asin": "B07NB6J3BK",
+"title": "WORX WG630E Hydroshot Nettoyeur sans fil 20V",
+"generic": false
+},
+"Bosch EasyAquatak": {
+"asin": "B086XYFJ3J",
+"title": "Bosch EasyAquatak 120 (1500 W, kit Home and Car)",
+"generic": false
+},
+"Gardena Smart Water Control": {
+"asin": "B01BIWLOXU",
+"title": "Gardena Smart Water Control 19031-20",
+"generic": false
+},
+"Rain Bird (programmateurs multi-zones)": {
+"asin": "B01GOGP0XU",
+"title": "Rain Bird RZX6I programmateur électrique intérieur 6 zones",
+"generic": false
+},
+"Hozelock": {
+"asin": "B01A9A2PYO",
+"title": "Hozelock Sensor Controller Plus 2214 0000",
+"generic": false
+},
+"Linktap": {
+"asin": "B08YX82WW8",
+"title": "LinkTap G1S Minuteur d'arrosage et Gateway",
+"generic": false
+},
+"Xiaomi Robot Vacuum (entrée de gamme)": {
+"asin": "B07W684TNQ",
+"title": "Xiaomi Robot Vacuum Cleaner E10 Blanc",
+"generic": true
+},
+"Roborock Q-series": {
+"asin": "B0D9YGS55L",
+"title": "roborock Q8 Max robot aspirateur laveur 5500Pa",
+"generic": true
+},
+"Lefant": {
+"asin": "B0BN64CY6B",
+"title": "Lefant M210P robot aspirateur 2200Pa",
+"generic": false
+},
+"Roborock avec caméra": {
+"asin": "B09W64D6R4",
+"title": "Roborock S7 MaxV robot aspirateur ReactiveAI 2.0",
+"generic": true
+},
+"Shark robot avec station": {
+"asin": "B09V1JDWL4",
+"title": "Shark AI 360 robot aspirateur auto-vidage RV2500SEU",
+"generic": true
+},
+"Roborock Q-series avec station": {
+"asin": "B0D9YF12WN",
+"title": "roborock Q8 Max+ robot aspirateur avec station",
+"generic": true
+},
+"Eufy RoboVac (gamme fine)": {
+"asin": "B07D7SZPXL",
+"title": "eufy RoboVac 11S Slim robot aspirateur",
+"generic": false
+},
+"Dyson (aspirateur à main)": {
+"asin": null,
+"title": "No individual Dyson handheld product page found in search results",
+"generic": true
+},
+"Shark WandVac": {
+"asin": "B09T749MH1",
+"title": "Shark WandVac 2.0 aspirateur à main sans fil WV270EU",
+"generic": false
+},
+"Black+Decker Dustbuster": {
+"asin": "B07L6X4K3T",
+"title": "Black+Decker Dustbuster aspirateur à main NVC115JL-QW",
+"generic": false
+},
+"Étendoir chauffant à étages avec housse": {
+"asin": "B0846GQHMJ",
+"title": "Black+Decker étendoir chauffant 3 étages avec housse et roulettes",
+"generic": true
+},
+"Étendoir chauffant à ailes": {
+"asin": "B07932PZKF",
+"title": "HOMCOM étendoir électrique chauffant 20 barres 2 ailes repliables 230W",
+"generic": true
+},
+"Étendoir chauffant simple": {
+"asin": "B0BJFJ3GTF",
+"title": "CELLUSTOP étendoir à linge électrique chauffant pliable 8 barres 120W",
+"generic": true
+},
+"Philips PerfectCare": {
+"asin": "B09PYXMX5C",
+"title": "Philips PerfectCare 6000 centrale vapeur 8 bar 1,8L",
+"generic": false
+},
+"Rowenta (centrale vapeur)": {
+"asin": "B0159YPTXE",
+"title": "Rowenta Silence Stream DG8961F0 centrale vapeur 6,5 bars",
+"generic": false
+},
+"Calor Express": {
+"asin": "B09JM7235L",
+"title": "Calor Express Power SV8061C0 centrale vapeur 2800W",
+"generic": false
+},
+"Moulinex Cookeo": {
+"asin": "B00TQILY02",
+"title": "Moulinex Cookeo multicuiseur intelligent 6L CE704110",
+"generic": false
+},
+"Instant Pot": {
+"asin": "B08Z4HCGDH",
+"title": "Instant Pot Duo 60 multicuiseur 7 en 1 5,7 L",
+"generic": false
+},
+"Mijoteuse électrique (slow cooker)": {
+"asin": "B00YCATDXY",
+"title": "Crockpot CSC012X mijoteuse électrique programmable 5,7L",
+"generic": true
+},
+"Moulinex Home Bread": {
+"asin": "B002J9HO1S",
+"title": "Moulinex OW302000 machine à pain Home Bread",
+"generic": false
+},
+"Panasonic (machine à pain)": {
+"asin": "B0921SL9SV",
+"title": "Panasonic SD-YR2550SXE machine à pain automatique",
+"generic": false
+},
+"Moulinex Pain Doré": {
+"asin": "B01LY00CQD",
+"title": "Moulinex Pain Doré OW2101 machine à pain 12 programmes",
+"generic": false
+},
+"Husqvarna Automower EPOS": {
+"asin": null,
+"title": "",
+"generic": false
+},
+"Mammotion Luba / Yuka": {
+"asin": "B0DT469BGY",
+"title": "MAMMOTION LUBA Mini AWD 1500 robot tondeuse",
+"generic": false
+},
+"Robot sans fil fond seul (entrée de gamme)": {
+"asin": "B082VDQL8Y",
+"title": "Orca O50 CL robot piscine sans fil fond plat",
+"generic": true
+},
+"Makita (souffleur 18 V)": {
+"asin": "B081H8MQ46",
+"title": "Makita DUB184Z souffleur LXT 18V",
+"generic": false
+},
+"Ryobi (souffleur ONE+)": {
+"asin": "B01LPCPBQ4",
+"title": "RYOBI OBL1820S souffleur 18V One+",
+"generic": false
+},
+"Worx (souffleur aspirateur)": {
+"asin": "B09KHG97BW",
+"title": "WORX WG583E.9 aspirateur souffleur Brushless 40V",
+"generic": false
+},
+"Petkit Pura Max": {
+"asin": "B0B4NRZSYF",
+"title": "PETKIT Pura Max litière autonettoyante",
+"generic": false
+},
+"Deux bacs à râteau (PetSafe ScoopFree)": {
+"asin": "B097PYYFZ1",
+"title": "PetSafe ScoopFree litière autonettoyante 2e génération",
+"generic": false
+},
+"SureFlap Connect": {
+"asin": "B07HFHZ3GJ",
+"title": "SureFlap Connect chatière connectée grande",
+"generic": false
+},
+"SureFlap Microchip": {
+"asin": "B00AE2OW6W",
+"title": "SureFlap grande chatière électronique à puce",
+"generic": false
+},
+"Cat Mate (chatière électronique)": {
+"asin": "B00ZC54W0W",
+"title": "Cat Mate chatière à puce 360B marron",
+"generic": false
+},
+"iFetch": {
+"asin": "B00PG3LWDK",
+"title": "iFetch Original lanceur de balles automatique",
+"generic": false
+},
+"Lanceur mini (plusieurs marques)": {
+"asin": "B0B9341ZRJ",
+"title": "Pet Prime lanceur de balle automatique mini",
+"generic": true
+},
+"Lanceur longue portée (plusieurs marques)": {
+"asin": "B0FJXNBSGR",
+"title": "Pet Prime lanceur automatique 2,5 à 20 m",
+"generic": true
+},
+"FURminator (outil de toilettage)": {
+"asin": "B0040QS3QS",
+"title": "FURminator outil de toilettage pour chat taille L",
+"generic": false
+},
+"Carde autonettoyante (Hertzko et autres)": {
+"asin": "B00ZGPI3OY",
+"title": "Hertzko brosse autonettoyante chiens et chats",
+"generic": true
+},
+"Gant de toilettage": {
+"asin": "B07G9M4G45",
+"title": "EiLife gant de toilettage massage chien chat",
+"generic": true
+},
+"Brosse en caoutchouc (Kong ZoomGroom et autres)": {
+"asin": "B0002AR18M",
+"title": "KONG Cat ZoomGroom brosse caoutchouc",
+"generic": true
+},
+"ChomChom Roller": {
+"asin": "B00BAGTNAQ",
+"title": "ChomChom Roller rouleau anti-poils",
+"generic": false
+},
+"Uproot Cleaner": {
+"asin": "B0B71C969N",
+"title": "Uproot Cleaner Pro anti-poils",
+"generic": false
+},
+"Rouleau adhésif": {
+"asin": "B0C8CVNMYL",
+"title": "Rouleau anti-peluches adhésif + 4 recharges",
+"generic": true
+},
+"Brosse en caoutchouc pour tissus": {
+"asin": "B01JP1QDKU",
+"title": "Vitazoo brosse anti-poils animaux caoutchouc",
+"generic": true
+},
+"Oneisall (kit de toilettage aspirant)": {
+"asin": "B0BJ2P1LZV",
+"title": "oneisall tondeuse aspirateur toilettage 12000Pa",
+"generic": false
+},
+"Neabot (kit de toilettage aspirant)": {
+"asin": "B093KYBVL2",
+"title": "neabot P1 Pro tondeuse aspirateur toilettage",
+"generic": false
+},
+"Accessoire de toilettage Dyson": {
+"asin": "B0CT273WF9",
+"title": "KEEPOW brosse Groom pour Dyson V6-V11",
+"generic": true
+},
+"FurZapper": {
+"asin": "B074CHX3HH",
+"title": "FURZAPPER 2 x épilateur poils pour linge",
+"generic": false
+},
+"Balles anti-poils": {
+"asin": "B0816VXGTS",
+"title": "4 x balles anti-poils machine à laver",
+"generic": true
+},
+"Sachets nettoyants pour tambour": {
+"asin": "B09NL4QYRF",
+"title": "Vamoosh nettoyant lave-linge 6 en 1",
+"generic": true
+}
+}

@@ -132,8 +132,15 @@ AMAZON_Q = {"Cosori": "Cosori airfryer", "Lefant": "Lefant robot aspirateur", "H
             "Mijoteuse électrique (slow cooker)": "mijoteuse électrique", "iFetch": "iFetch lanceur balle"}
 
 
+# Fiches Amazon.fr exactes (ASIN) trouvées pour chaque produit, le 5 octobre 2026.
+ASINS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "asins.json")))
+
+
 def amazon(p):
-    """Lien de recherche Amazon.fr avec l'identifiant partenaire, faute d'ASIN précis par produit."""
+    """Lien Amazon.fr avec l'identifiant partenaire : fiche exacte si on a l'ASIN, sinon recherche."""
+    asin = (ASINS.get(p["name"]) or {}).get("asin")
+    if asin:
+        return f"https://www.amazon.fr/dp/{asin}?tag={AMAZON_TAG}"
     q = AMAZON_Q.get(p["name"])
     if not q:
         q = p["name"].replace("(", " ").replace(")", " ").replace(" et autres", "").replace("…", "").replace("plusieurs marques", "")
@@ -143,7 +150,7 @@ def amazon(p):
     return f"https://www.amazon.fr/s?k={quote_plus(q)}&tag={AMAZON_TAG}"
 
 
-def buy(p, i, cls="btn btn-main", label="Voir le prix", page=""):
+def buy(p, i, cls="btn btn-main", label="Voir sur Amazon", page=""):
     p = dict(p, link=p.get("link") or amazon(p))
     if p.get("link"):
         return f'<a class="{cls}" href="{e(p["link"])}" rel="sponsored nofollow noopener" target="_blank">{label}</a>'
