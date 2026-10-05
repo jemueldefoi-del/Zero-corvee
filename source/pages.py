@@ -27,24 +27,24 @@ STATIC_PAGES = [
  "desc": "Zéro Corvée est financé par l'affiliation. Voici comment fonctionnent nos liens et ce que cela change pour vous.",
  "body": """<p>Certains boutons « Voir le prix » de nos guides sont des liens d'affiliation. Si vous achetez après avoir cliqué dessus, le marchand nous verse une commission.</p>
 <ul><li>Le prix que vous payez est exactement le même.</li><li>Aucune marque ne paie pour figurer dans nos classements ou pour obtenir une meilleure place.</li><li>Nous indiquons la présence de liens affiliés en haut de chaque guide.</li></ul>
-<p>[Programmes auxquels le site participe, par exemple : « Zéro Corvée participe au Programme Partenaires d'Amazon EU. »]</p>"""},
+<p>Zéro Corvée participe au Programme Partenaires d'Amazon EU, un programme d'affiliation conçu pour permettre à des sites de percevoir une rémunération grâce à la création de liens vers Amazon.fr. En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.</p>"""},
 
 {"slug": "contact", "nav": "Contact", "h1": "Nous contacter",
  "title": "Contact | Zéro Corvée",
  "desc": "Une question, une erreur dans un guide, une suggestion d'appareil à comparer ? Contactez l'équipe Zéro Corvée.",
  "body": """<p>Une erreur dans un guide, un appareil que nous devrions comparer, ou une question avant un achat ? Écrivez-nous :</p>
-<p><strong>[adresse e-mail de contact]</strong></p>
+<p><strong><a href="mailto:zerocorvee1@gmail.com">zerocorvee1@gmail.com</a></strong></p>
 <p>Nous ne vendons aucun produit directement : pour une commande, une livraison ou une garantie, contactez le marchand ou le fabricant.</p>"""},
 
 {"slug": "mentions-legales", "nav": "Mentions légales", "h1": "Mentions légales",
  "title": "Mentions légales | Zéro Corvée",
  "desc": "Mentions légales du site Zéro Corvée.",
  "body": """<h2>Éditeur du site</h2>
-<p>[Nom et prénom ou raison sociale]<br>[Statut, par exemple micro-entreprise, et numéro SIRET]<br>[Adresse]<br>[Adresse e-mail]</p>
+<p>Jémuel DEFOI<br>Éditeur à titre personnel<br>Contact : <a href="mailto:zerocorvee1@gmail.com">zerocorvee1@gmail.com</a></p>
 <h2>Directeur de la publication</h2>
-<p>[Nom et prénom]</p>
+<p>Jémuel DEFOI</p>
 <h2>Hébergement</h2>
-<p>[Nom de l'hébergeur, adresse et téléphone, par exemple GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis]</p>
+<p>GitHub, Inc. (service GitHub Pages)<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br><a href="https://github.com" rel="noopener">github.com</a></p>
 <h2>Propriété intellectuelle</h2>
 <p>Les textes et la mise en page de ce site sont protégés. Toute reproduction sans autorisation est interdite. Les marques et noms de produits cités appartiennent à leurs propriétaires respectifs.</p>"""},
 
@@ -55,7 +55,7 @@ STATIC_PAGES = [
 <h2>Liens d'affiliation et cookies</h2>
 <p>Lorsque vous cliquez sur un lien vers un marchand partenaire, celui-ci peut déposer un cookie pour attribuer une éventuelle vente au site. Ce cookie est géré par le marchand, selon sa propre politique de confidentialité.</p>
 <h2>Mesure d'audience</h2>
-<p>[Indiquer l'outil utilisé, s'il y en a un, par exemple une mesure d'audience sans cookie.]</p>
+<p>Le site n'utilise aucun outil de mesure d'audience ni cookie publicitaire. Les polices d'écriture sont chargées depuis Google Fonts : votre navigateur transmet donc votre adresse IP à Google lors de leur chargement.</p>
 <h2>Vos droits</h2>
-<p>Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à [adresse e-mail].</p>"""},
+<p>Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href="mailto:zerocorvee1@gmail.com">zerocorvee1@gmail.com</a>.</p>"""},
 ]
