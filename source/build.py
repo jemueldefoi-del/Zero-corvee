@@ -203,6 +203,22 @@ def toc(g):
     return f'<nav class="toc" aria-label="Sommaire"><span class="eyebrow">Sommaire</span><ol>{items}</ol></nav>'
 
 
+def shop_card(g, p, i, page=""):
+    """Carte produit façon vitrine : visuel, badge, nom, pour qui, 2 atouts, prix, bouton."""
+    pros = "".join(f"<li>{e(x)}</li>" for x in p["pros"][:2])
+    more = f'<a class="more" href="{page}">Voir le comparatif</a>' if page else f'<a class="more" href="#p{i+1}">Lire l\'avis complet</a>'
+    return f"""<article class="shop{' shop-top' if i == 0 and not page else ''}"{tint(g["cat"])}>
+  <div class="shop-vis">{art(g["slug"])}<span class="shop-badge">{e(g["short"] if page else p["badge"])}</span></div>
+  <div class="shop-body">
+    <h3 translate="no">{e(p["name"])}</h3>
+    <p class="shop-for">Pour {e(p["for"])}</p>
+    <ul class="shop-pros">{pros}</ul>
+    <div class="shop-foot"><span class="shop-price" title="Niveau de prix">{e(p["price"])}</span>{buy(p, i, "btn btn-main", "Voir sur Amazon", page)}</div>
+    {more}
+  </div>
+</article>"""
+
+
 def guide_page(g):
     cat = next(c for c in CATEGORIES if c["key"] == g["cat"])
     sub = sub_of(g)
@@ -266,20 +282,16 @@ def guide_page(g):
     <span class="eyebrow">Guide d'achat · {e(cat["name"])}</span>
     <h1>{e(g["h1"])}</h1>
     <p class="lede">{e(g["lede"])}</p>
-    <div class="meta"><span>Mis à jour le <time datetime="{UPDATED}">{UPDATED_FR}</time></span><span>Lecture : {g["read"]} min</span><span>{n} modèles comparés</span></div>
-    <p class="disclose">Certains liens de cette page sont affiliés : si vous achetez via eux, nous touchons une petite commission, sans surcoût pour vous. Cela ne change ni l'ordre ni l'avis.</p>
+    <div class="meta"><span>Mis à jour le <time datetime="{UPDATED}">{UPDATED_FR}</time></span><span>{n} modèles comparés</span><span>Lecture : {g["read"]} min</span></div>
   </div>
+
+  <section class="vitrine" aria-labelledby="h-top">
+    <div class="vitrine-head"><h2 id="h-top">Notre sélection en un coup d'œil</h2><a href="#h-compare">Voir les {n} modèles comparés ↓</a></div>
+    <div class="shops">{"".join(shop_card(g, p, i) for i, p in enumerate(g["products"][:3]))}</div>
+    <p class="disclose">Liens affiliés : si vous achetez via eux, nous touchons une petite commission, sans surcoût pour vous. Cela ne change ni l'ordre ni l'avis.</p>
+  </section>
   {toc(g)}
 
-  <aside class="pick" aria-label="Notre choix rapide">
-    <div style="display:grid;gap:8px;min-width:0">
-      <span class="eyebrow">Si vous ne lisez qu'une chose</span>
-      <h2>{e(g["products"][0]["name"])}</h2>
-      <p>{e(pick["why"])}</p>
-      <p class="alts">{pick["alts"]}</p>
-    </div>
-    <div class="pick-cta">{buy(g["products"][0], 0, "btn btn-light")}<a class="btn btn-onc" href="#p1">Lire l'avis</a></div>
-  </aside>
 
   <section class="block" aria-labelledby="h-compare">
     {sec_head(1, "Le comparatif en un coup d'œil", "h-compare")}
@@ -362,7 +374,7 @@ def guides_in(key):
     return [g for g in GUIDES if g["cat"] == key]
 
 
-LOVES = ["robot-aspirateur-laveur", "litiere-autonettoyante", "robot-tondeuse", "airfryer", "rouleau-anti-poils", "seche-linge-pompe-a-chaleur"]
+LOVES = ["robot-aspirateur-laveur", "litiere-autonettoyante", "robot-tondeuse", "airfryer", "seche-linge-pompe-a-chaleur", "robot-aspirateur-station-vidage", "rouleau-anti-poils", "robot-piscine"]
 FEATURED = ["robot-aspirateur-laveur", "robot-tondeuse", "litiere-autonettoyante", "seche-linge-pompe-a-chaleur", "airfryer", "robot-piscine", "aspirateur-balai-sans-fil", "fontaine-eau-chat"]
 
 
@@ -380,13 +392,7 @@ def home_page():
     for s_ in LOVES:
         g = next(x for x in GUIDES if x["slug"] == s_)
         p = g["products"][0]
-        loves += f"""<article class="love"{tint(g["cat"])}>
-  <span class="tag">{e(g["short"])}</span>
-  <h3 translate="no">{e(p["name"])}</h3>
-  <p>{e(g["pick"]["why"])}</p>
-  <ul>{"".join(f"<li>{e(x)}</li>" for x in p["pros"][:2])}</ul>
-  <div class="love-foot"><span class="bb-price">{e(p["price"])}</span>{buy(p, 0, page=href(g["slug"]))}<a class="more" href="{href(g["slug"])}">Lire le comparatif</a></div>
-</article>"""
+        loves += shop_card(g, p, 0, href(g["slug"]))
     for n, c in enumerate(CATEGORIES, 4):
         gs = guides_in(c["key"])
         blocks += f"""
@@ -425,21 +431,22 @@ def home_page():
     </dl>
   </div>
 
+  <section class="block" aria-labelledby="h-loves">
+    {sec_head(1, "Les meilleurs appareils du moment", "h-loves")}
+    <p class="prose muted">Notre premier choix dans chaque guide : le modèle qu'on achèterait pour nous.</p>
+    <div class="shops">{loves}</div>
+  </section>
+
   <section class="block" aria-labelledby="h-chores">
-    {sec_head(1, "Choisissez votre corvée", "h-chores")}
+    {sec_head(2, "Choisissez votre corvée", "h-chores")}
     <div class="rows">{rows}</div>
   </section>
 
   <section class="block" aria-labelledby="h-start">
-    {sec_head(2, "Pour commencer", "h-start")}
+    {sec_head(3, "Pour commencer", "h-start")}
     <div class="related">{feat}</div>
   </section>
 
-  <section class="block" aria-labelledby="h-loves">
-    {sec_head(3, "Nos coups de cœur du moment", "h-loves")}
-    <p class="prose muted">Le modèle qu'on recommande en premier dans chaque guide, celui qu'on achèterait pour nous.</p>
-    <div class="loves">{loves}</div>
-  </section>
 {blocks}
 
   <section class="block" aria-labelledby="h-how">
@@ -649,7 +656,7 @@ footer .logo rect{fill:var(--accent-ink)}
 footer .logo path{stroke:var(--accent)}
 .muted{color:var(--muted)}
 .home-hero{padding-block:clamp(48px,9vw,112px) 8px;gap:28px}
-.home-hero h1{font-size:clamp(2.6rem,8.4vw,6.4rem);letter-spacing:-.05em;line-height:.98;max-width:13ch}
+.home-hero h1{font-size:clamp(2.3rem,5.6vw,4.2rem);letter-spacing:-.045em;line-height:1;max-width:16ch}
 .hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end}
 .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
 .go::after{content:"→"}
@@ -756,11 +763,42 @@ nav.cats a{transition:background-color var(--t1) var(--ease),color var(--t1) var
 @media (min-width:860px){
   .hero.has-art{padding-right:220px}
   .hero-art{display:grid;place-items:center;position:absolute;right:0;top:24px;width:190px;height:190px;border-radius:28px;background:color-mix(in srgb,var(--c) 10%,var(--surface));color:var(--c)}
-  .hero-art .art{width:128px;height:128px}
+  .hero-art .art{width:96px;height:96px}
+  .hero.has-art{padding-right:170px}
+  .hero-art{width:140px;height:140px;top:40px}
 }
 @media (prefers-reduced-motion:no-preference){
   .related a .art{transition:transform var(--t2) var(--ease)}
   .related a:hover .art{transform:translateY(-3px) rotate(-3deg)}
+}
+/* Vitrine produits (6 oct. 2026) */
+main .hero.has-art h1{font-size:clamp(1.8rem,3.6vw,2.5rem);max-width:26ch}
+.hero.has-art{padding-bottom:12px}
+.vitrine{display:grid;gap:16px;margin:28px 0 40px}
+.vitrine-head{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between}
+.vitrine-head h2{font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:-.02em}
+.vitrine-head a{color:var(--c);font-weight:600;text-decoration:none}
+.vitrine .disclose{font-size:.78rem;color:var(--muted)}
+.shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.vitrine .shops{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.shop{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;min-width:0}
+.shop-top{border:2px solid var(--c);box-shadow:0 10px 30px -18px var(--c)}
+.shop-vis{position:relative;display:grid;place-items:center;height:150px;background:color-mix(in srgb,var(--c) 10%,var(--surface));color:var(--c)}
+.shop-vis .art{width:96px;height:96px}
+.shop-badge{position:absolute;top:12px;left:12px;background:var(--c);color:#fff;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;letter-spacing:.02em}
+.shop-body{display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;flex:1}
+.shop-body h3{font-size:1.12rem;letter-spacing:-.02em;line-height:1.25;overflow-wrap:break-word}
+.shop-for{font-size:.88rem;color:var(--muted);line-height:1.45}
+.shop-pros{list-style:none;padding:0;margin:0;display:grid;gap:4px;font-size:.88rem}
+.shop-pros li{padding-left:20px;position:relative}
+.shop-pros li::before{content:"✓";position:absolute;left:0;color:var(--c);font-weight:700}
+.shop-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid var(--line)}
+.shop-price{font-family:var(--f-mono,monospace);font-weight:700;color:var(--ink)}
+.shop-foot .btn{padding:10px 16px;font-size:.9rem}
+.shop .more{font-size:.84rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px;align-self:flex-start}
+@media (prefers-reduced-motion:no-preference){
+  .shop{transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
+  .shop:hover{transform:translateY(-3px);box-shadow:0 14px 34px -20px var(--c)}
 }
 """
 
