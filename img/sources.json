@@ -440,11 +440,6 @@
 "alt": []
 },
 {
-"id": "litter-robot-4",
-"url": "https://images.litter-robot.com/media/catalog/product/cache/b981f6f3a80a8943d32a47df46c9c8b0/t/r/trimmed_gallery_b-transparent_1.png",
-"alt": []
-},
-{
 "id": "dyson-v15-detect",
 "url": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary-locale/fr_FR/443099-01.png?fmt=png-alpha&wid=1000",
 "alt": []
@@ -721,5 +716,21 @@
 {
 "id": "petsafe-lanceur-de-balle-automatique",
 "url": "https://cdn.shopify.com/s/files/1/0469/7935/0690/products/pty00-14665_b2_1.jpg?v=1600965103"
+},
+{
+"id": "cand--litter-robot-4--0",
+"url": "https://images.litter-robot.com/media/catalog/product/e/n/english_black_1_.png"
+},
+{
+"id": "cand--litter-robot-4--1",
+"url": "https://images.litter-robot.com/media/catalog/product/cache/e6de2d0e1331ef6c30a29db70bfaf17f/e/n/english_black_1_.png"
+},
+{
+"id": "cand--litter-robot-4--2",
+"url": "https://images.litter-robot.com/media/catalog/product/l/r/lr4_4c.jpg"
+},
+{
+"id": "cand--litter-robot-4--3",
+"url": "https://images.litter-robot.com/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/l/r/lr4_4c.jpg"
 }
 ]
