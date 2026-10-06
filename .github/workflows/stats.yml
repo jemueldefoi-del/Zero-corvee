@@ -3,7 +3,7 @@ name: stats-visites
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   stats:
     runs-on: ubuntu-latest
@@ -29,9 +29,12 @@ jobs:
           curl -sf -H "$H" "$API/stats/hits?start=${d7}&end=${today}&limit=10" > out/pages7.json
           curl -sf -H "$H" "$API/stats/toprefs?start=${d7}&end=${today}&limit=10" > out/sources7.json || echo '{}' > out/sources7.json
           echo "$today" > out/date.txt
-      - if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: stats
-          path: out
-          retention-days: 3
+      - name: Enregistrer sur la branche stats-data
+        if: always()
+        run: |
+          cd out
+          git init -q -b stats-data
+          git config user.name "jemueldefoi-del"
+          git config user.email "jemueldefoi@users.noreply.github.com"
+          git add -A && git commit -qm "stats $(date -u +%FT%TZ)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" stats-data
