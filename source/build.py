@@ -8,8 +8,8 @@ from pages import STATIC_PAGES
 # À remplacer par le vrai nom de domaine une fois acheté.
 BASE = "https://jemueldefoi-del.github.io/Zero-corvee"
 SITE = "Zéro Corvée"
-UPDATED = "2026-10-04"
-UPDATED_FR = "4 octobre 2026"
+UPDATED = "2026-10-06"
+UPDATED_FR = "6 octobre 2026"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.environ.get("OUT", os.path.join(HERE, "site"))
