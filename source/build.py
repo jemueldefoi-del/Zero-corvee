@@ -68,6 +68,7 @@ def head(title, desc, slug, ld, og_type="article"):
 {FONTS}
 <link rel="stylesheet" href="style.css">
 {lds}
+<script data-goatcounter="https://zerocorvee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <a class="skip" href="#haut">Aller au contenu</a>

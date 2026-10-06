@@ -55,7 +55,7 @@ STATIC_PAGES = [
 <h2>Liens d'affiliation et cookies</h2>
 <p>Lorsque vous cliquez sur un lien vers un marchand partenaire, celui-ci peut déposer un cookie pour attribuer une éventuelle vente au site. Ce cookie est géré par le marchand, selon sa propre politique de confidentialité.</p>
 <h2>Mesure d'audience</h2>
-<p>Le site n'utilise aucun outil de mesure d'audience ni cookie publicitaire. Les polices d'écriture sont chargées depuis Google Fonts : votre navigateur transmet donc votre adresse IP à Google lors de leur chargement.</p>
+<p>Pour savoir combien de personnes lisent le site et quelles pages sont consultées, nous utilisons GoatCounter, un outil de statistiques respectueux de la vie privée : il ne dépose aucun cookie, ne vous suit pas d'un site à l'autre et ne conserve pas votre adresse IP. Le site n'utilise aucun cookie publicitaire. Les polices d'écriture sont chargées depuis Google Fonts : votre navigateur transmet donc votre adresse IP à Google lors de leur chargement.</p>
 <h2>Vos droits</h2>
 <p>Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href="mailto:zerocorvee1@gmail.com">zerocorvee1@gmail.com</a>.</p>"""},
 ]
