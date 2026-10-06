@@ -16,16 +16,19 @@ jobs:
           sudo apt-get install -y -qq imagemagick >/dev/null 2>&1 || true
           mkdir -p img tmp
           ok=0; ko=0
-          jq -r '.[] | select(.url != null) | "\(.id)\t\(.url)"' img/sources.json > tmp/list.tsv
-          while IFS=$'\t' read -r id url; do
+          jq -r '.[] | select(.url != null) | "\(.id)\t\(([.url] + (.alt // [])) | join(" "))"' img/sources.json > tmp/list.tsv
+          while IFS=$'\t' read -r id urls; do
             [ -f "img/$id.jpg" ] && continue
-            if curl -sfL --max-time 30 -A "Mozilla/5.0" -o "tmp/$id.src" "$url" \
-               && convert "tmp/$id.src[0]" -background white -alpha remove -alpha off -fuzz 4% -trim +repage \
-                    -resize 560x560 -gravity center -extent 640x640 -quality 84 -strip "img/$id.jpg"; then
-              ok=$((ok+1))
-            else
-              echo "ÉCHEC $id $url"; ko=$((ko+1)); rm -f "img/$id.jpg"
-            fi
+            done1=0
+            for url in $urls; do
+              if curl -sfL --max-time 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36" -o "tmp/$id.src" "$url" \
+                 && convert "tmp/$id.src[0]" -background white -alpha remove -alpha off -fuzz 4% -trim +repage \
+                      -resize 560x560 -gravity center -extent 640x640 -quality 84 -strip "img/$id.jpg"; then
+                done1=1; break
+              fi
+              rm -f "img/$id.jpg"
+            done
+            if [ $done1 = 1 ]; then ok=$((ok+1)); else echo "ÉCHEC $id"; ko=$((ko+1)); fi
           done < tmp/list.tsv
           echo "OK=$ok ÉCHECS=$ko"
           ls img/*.jpg 2>/dev/null | sed 's#img/##; s#\.jpg$##' | jq -R . | jq -s . > img/available.json
