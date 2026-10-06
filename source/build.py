@@ -454,7 +454,7 @@ def home_page():
   <span class="row-pain">{e(c["pain"])}</span>
   <span class="row-count">{len(guides_in(c["key"]))} guides</span>
 </a>""" + "".join(f"""<a class="row row-sub" href="{href(sc["key"])}"{tint(c["key"])}>
-  <span class="row-n">↳</span>
+  <span class="row-n">{len(CATEGORIES) + 1 + [x["key"] for x in SUBCATS].index(sc["key"]):02d}</span>
   <strong>{e(sc["name"])}</strong>
   <span class="row-pain">Rouleaux, brosses, aspirateurs de toilettage, linge.</span>
   <span class="row-count">{len(sc["guides"])} guides</span>
