@@ -3,6 +3,7 @@
 import json, os, re, shutil, html
 from urllib.parse import quote_plus
 from content import GUIDES, CATEGORIES, SUBCATS
+from icons import art
 from pages import STATIC_PAGES
 
 # À remplacer par le vrai nom de domaine une fois acheté.
@@ -259,7 +260,8 @@ def guide_page(g):
     return head(g["title"], g["desc"], g["slug"], ld).replace("<body>", f"<body{tint(g['cat'])}>") + header(g["cat"]).replace('<header class="top">', '<header class="top"><div class="progress" aria-hidden="true"></div>', 1) + f"""
 <main class="wrap" id="haut">
   <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a> › <a href="{href(cat["key"])}">{e(cat["name"])}</a>{sub_crumb} › {e(g["short"])}</nav>
-  <div class="hero">
+  <div class="hero has-art">
+    <span class="hero-art">{art(g["slug"])}</span>
     <span class="eyebrow">Guide d'achat · {e(cat["name"])}</span>
     <h1>{e(g["h1"])}</h1>
     <p class="lede">{e(g["lede"])}</p>
@@ -347,7 +349,7 @@ def guide_page(g):
 
 def card(g):
     cat = next(c for c in CATEGORIES if c["key"] == g["cat"])
-    return f'<a href="{href(g["slug"])}"{tint(g["cat"])}><span class="tag">{e(cat["name"])}</span><strong>{e(g["short"])}</strong><span>{e(g["teaser"])}</span><small class="cmeta">{len(g["products"])} modèles · {g["read"]} min</small><em>Voir la sélection</em></a>'
+    return f'<a href="{href(g["slug"])}"{tint(g["cat"])}><span class="thumb">{art(g["slug"])}</span><span class="tag">{e(cat["name"])}</span><strong>{e(g["short"])}</strong><span>{e(g["teaser"])}</span><small class="cmeta">{len(g["products"])} modèles · {g["read"]} min</small><em>Voir la sélection</em></a>'
 
 
 def sec_head(n, title, hid, link=None, label=None):
@@ -741,6 +743,24 @@ nav.cats a{transition:background-color var(--t1) var(--ease),color var(--t1) var
 @keyframes grow{to{transform:scaleX(1)}}
 @keyframes bbin{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
 @keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+/* Illustrations (6 oct. 2026) */
+.related a{display:flex;flex-direction:column}
+.related a .cmeta{margin-top:auto}
+.thumb{display:grid;place-items:center;height:96px;margin:-6px -6px 4px;border-radius:calc(var(--r) - 4px);background:color-mix(in srgb,var(--c) 9%,var(--surface));color:var(--c)}
+.thumb .art{width:68px;height:68px}
+.related .thumb,.related .tag{color:var(--c)}
+.art .f{fill:color-mix(in srgb,currentColor 16%,transparent);stroke:none}
+.hero.has-art{position:relative}
+.hero-art{display:none}
+@media (min-width:860px){
+  .hero.has-art{padding-right:220px}
+  .hero-art{display:grid;place-items:center;position:absolute;right:0;top:24px;width:190px;height:190px;border-radius:28px;background:color-mix(in srgb,var(--c) 10%,var(--surface));color:var(--c)}
+  .hero-art .art{width:128px;height:128px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .related a .art{transition:transform var(--t2) var(--ease)}
+  .related a:hover .art{transform:translateY(-3px) rotate(-3deg)}
+}
 """
 
 
