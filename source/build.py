@@ -414,7 +414,7 @@ def home_page():
     <span class="eyebrow"><span class="live" aria-hidden="true"></span>Guides d'achat indépendants · Mis à jour le <time datetime="{UPDATED}">{UPDATED_FR}</time></span>
     <h1>Les corvées, laissez les <span class="hl">machines</span> s'en charger.</h1>
     <div class="hero-foot">
-      <p class="lede">Aspirateur, tonte, linge, litière, vaisselle : on compare les appareils qui font le travail à votre place, et on vous dit lesquels valent vraiment leur prix.</p>
+      <p class="lede">Aspirateur, tondeuse, linge, litière, vaisselle : on compare les appareils qui font le travail à votre place, et on vous dit lesquels valent vraiment leur prix.</p>
       <div class="hero-cta"><a class="btn btn-main go" href="#h-start">Voir les guides</a><a class="btn btn-ghost go" href="methode.html">Notre méthode</a></div>
     </div>
     <dl class="stats">
