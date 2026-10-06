@@ -108,6 +108,30 @@ def footer():
 <script>
 (function(){{var b=document.getElementById('menu-btn'),n=document.getElementById('cats');
 b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');}});}})();
+(function(){{var c=document.querySelector('[data-carousel]');if(!c)return;
+var t=c.querySelector('.car-track'),cards=[].slice.call(t.children),dots=c.querySelector('.car-dots'),
+rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,idx=0;
+cards.forEach(function(_,i){{var d=document.createElement('i');d.addEventListener('click',function(){{go(i)}});dots.appendChild(d);}});
+function center(el){{return el.offsetLeft+el.offsetWidth/2-t.clientWidth/2;}}
+function go(i){{idx=(i+cards.length)%cards.length;t.scrollTo({{left:center(cards[idx]),behavior:rm?'auto':'smooth'}});}}
+function paint(){{var mid=t.scrollLeft+t.clientWidth/2,best=0,bd=1e9;
+cards.forEach(function(el,i){{var m=el.offsetLeft+el.offsetWidth/2,d=Math.abs(m-mid),k=Math.min(d/(el.offsetWidth*1.6),1);
+if(d<bd){{bd=d;best=i;}}
+if(!rm){{el.style.transform='scale('+(1-k*.1).toFixed(3)+') rotateY('+((m<mid?1:-1)*k*10).toFixed(1)+'deg)';el.style.opacity=(1-k*.4).toFixed(2);}}}});
+idx=best;[].forEach.call(dots.children,function(d,i){{d.className=i===best?'on':'';}});}}
+t.addEventListener('scroll',function(){{window.requestAnimationFrame(paint);}},{{passive:true}});
+window.addEventListener('resize',paint);
+c.querySelector('.prev').addEventListener('click',function(){{go(idx-1);stop();}});
+c.querySelector('.next').addEventListener('click',function(){{go(idx+1);stop();}});
+var down=false,sx=0,sl=0;
+t.addEventListener('pointerdown',function(ev){{if(ev.pointerType!=='mouse')return;down=true;sx=ev.clientX;sl=t.scrollLeft;t.classList.add('drag');stop();}});
+window.addEventListener('pointermove',function(ev){{if(!down)return;t.scrollLeft=sl-(ev.clientX-sx);}});
+window.addEventListener('pointerup',function(){{if(!down)return;down=false;t.classList.remove('drag');go(idx);}});
+t.addEventListener('click',function(ev){{if(Math.abs(t.scrollLeft-sl)>8&&sx){{ev.preventDefault();}}sx=0;}},true);
+function start(){{if(rm||timer)return;timer=setInterval(function(){{go(idx+1)}},4200);}}
+function stop(){{clearInterval(timer);timer=null;}}
+c.addEventListener('mouseenter',stop);c.addEventListener('mouseleave',start);c.addEventListener('focusin',stop);t.addEventListener('touchstart',stop,{{passive:true}});
+paint();t.scrollLeft=center(cards[Math.min(2,cards.length-1)]);paint();start();}})();
 </script>
 </body>
 </html>
@@ -203,12 +227,35 @@ def toc(g):
     return f'<nav class="toc" aria-label="Sommaire"><span class="eyebrow">Sommaire</span><ol>{items}</ol></nav>'
 
 
+import unicodedata
+_PH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos.json")
+PHOTOS = set(json.load(open(_PH))) if os.path.exists(_PH) else set()
+
+
+def pid(name):
+    t = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")[:60]
+
+
+def photo(p, size=640, cls="ph", eager=False):
+    """Photo officielle du produit (fond blanc), ou None s'il n'y en a pas."""
+    i = pid(p["name"])
+    if i not in PHOTOS:
+        return None
+    lz = "" if eager else ' loading="lazy" decoding="async"'
+    return f'<img class="{cls}" src="img/{i}.jpg" width="{size}" height="{size}" alt="{e(p["name"])}"{lz}>'
+
+
+def visual(g, p, eager=False):
+    return photo(p, eager=eager) or art(g["slug"])
+
+
 def shop_card(g, p, i, page=""):
     """Carte produit façon vitrine : visuel, badge, nom, pour qui, 2 atouts, prix, bouton."""
     pros = "".join(f"<li>{e(x)}</li>" for x in p["pros"][:2])
     more = f'<a class="more" href="{page}">Voir le comparatif</a>' if page else f'<a class="more" href="#p{i+1}">Lire l\'avis complet</a>'
     return f"""<article class="shop{' shop-top' if i == 0 and not page else ''}"{tint(g["cat"])}>
-  <div class="shop-vis">{art(g["slug"])}<span class="shop-badge">{e(g["short"] if page else p["badge"])}</span></div>
+  <div class="shop-vis{" has-ph" if photo(p) else ""}">{visual(g, p)}<span class="shop-badge">{e(g["short"] if page else p["badge"])}</span></div>
   <div class="shop-body">
     <h3 translate="no">{e(p["name"])}</h3>
     <p class="shop-for">Pour {e(p["for"])}</p>
@@ -239,7 +286,7 @@ def guide_page(g):
     ]
     n = len(g["products"])
     rows = "".join(
-        f'<tr><td><a href="#p{i+1}">{e(p["name"])}</a></td><td>{e(p["badge"])}</td>'
+        f'<tr><td><a class="tname" href="#p{i+1}">{photo(p, 64, "thumb") or ""}<span>{e(p["name"])}</span></a></td><td>{e(p["badge"])}</td>'
         + "".join(f"<td>{e(v)}</td>" for v in p["table"]) + f'<td class="num">{e(p["price"])}</td><td>{buy(p, i, "btn btn-main btn-sm")}</td></tr>'
         for i, p in enumerate(g["products"]))
     cards = ""
@@ -248,7 +295,7 @@ def guide_page(g):
         cards += f"""
       <article class="card" id="p{i+1}">
         <div class="card-head">
-          <span class="rank" aria-label="Rang {i+1}">{i+1:02d}</span>
+          <span class="rank" aria-label="Rang {i+1}">{i+1:02d}</span>{('<div class="card-ph">' + photo(p) + '<small>Photo : ' + e(p["brand"]) + '</small></div>') if photo(p) else ''}
           <div style="min-width:0"><h3 translate="no">{e(p["name"])}</h3><span class="who">{e(p["brand"])}</span></div>
           <span class="badge">{e(p["badge"])}</span>
         </div>
@@ -434,7 +481,10 @@ def home_page():
   <section class="block" aria-labelledby="h-loves">
     {sec_head(1, "Les meilleurs appareils du moment", "h-loves")}
     <p class="prose muted">Notre premier choix dans chaque guide : le modèle qu'on achèterait pour nous.</p>
-    <div class="shops">{loves}</div>
+    <div class="carousel" data-carousel>
+      <div class="car-track" tabindex="0" aria-label="Produits du moment, faites glisser">{loves}</div>
+      <div class="car-actions"><button class="car-btn prev" type="button" aria-label="Produit précédent">←</button><span class="car-dots" aria-hidden="true"></span><button class="car-btn next" type="button" aria-label="Produit suivant">→</button></div>
+    </div>
   </section>
 
   <section class="block" aria-labelledby="h-chores">
@@ -800,6 +850,32 @@ main .hero.has-art h1{font-size:clamp(1.8rem,3.6vw,2.5rem);max-width:26ch}
   .shop{transition:transform var(--t2) var(--ease),box-shadow var(--t2) var(--ease)}
   .shop:hover{transform:translateY(-3px);box-shadow:0 14px 34px -20px var(--c)}
 }
+/* Photos produits + carrousel (6 oct. 2026) */
+html,body{overflow-x:clip}
+.shop-vis.has-ph{background:#fff;border-bottom:1px solid var(--line)}
+.shop-vis .ph{width:100%;height:100%;object-fit:contain;padding:14px;background:#fff}
+.shop-vis.has-ph{height:210px}
+.card-ph{display:grid;gap:4px;justify-items:center}
+.card-ph .ph{width:120px;height:120px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px}
+.card-ph small{font-size:.68rem;color:var(--muted)}
+.card-head:has(.card-ph){grid-template-columns:auto auto 1fr auto}
+@media (max-width:640px){.card-head:has(.card-ph){grid-template-columns:auto 1fr}.card-ph{grid-column:1 / -1;justify-items:start}}
+.tname{display:flex;align-items:center;gap:10px}
+.tname .thumb{width:44px;height:44px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;flex:none}
+.carousel{display:grid;gap:14px;perspective:1400px;margin-inline:calc(50% - 50vw)}
+.car-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px calc(50% - 150px) 22px;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track.drag{cursor:grabbing;scroll-snap-type:none}
+.car-track.drag *{pointer-events:none}
+.car-track>.shop{flex:0 0 300px;scroll-snap-align:center;transform-origin:center;transition:transform .25s ease-out,opacity .25s ease-out;will-change:transform}
+.car-actions{display:flex;align-items:center;justify-content:center;gap:16px}
+.car-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-size:1.1rem;cursor:pointer}
+.car-btn:hover{border-color:var(--ink)}
+.car-btn:active{transform:scale(.94)}
+.car-dots{display:flex;gap:7px}
+.car-dots i{width:7px;height:7px;border-radius:50%;background:var(--line-strong);cursor:pointer;transition:width .25s,background .25s}
+.car-dots i.on{width:22px;border-radius:4px;background:var(--accent)}
+@media (max-width:640px){.car-track{padding-inline:calc(50% - 135px)}.car-track>.shop{flex-basis:270px}}
 """
 
 

@@ -86,7 +86,7 @@
     <div class="sec-head"><span class="idx">(01)</span><h2 id="h-compare">Le comparatif en un coup d&#x27;œil</h2></div>
     <div class="table-scroll"><table>
       <thead><tr><th>Modèle</th><th>Idéal pour</th><th>Housse</th><th>Pliage</th><th>Prix</th><th><span class="sr">Acheter</span></th></tr></thead>
-      <tbody><tr><td><a href="#p1">Étendoir chauffant à étages avec housse</a></td><td>Meilleur choix</td><td>Oui</td><td>À plat</td><td class="num">€€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B0846GQHMJ?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr><tr><td><a href="#p2">Étendoir chauffant à ailes</a></td><td>Petit espace</td><td>Selon modèle</td><td>Ailes</td><td class="num">€€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B07932PZKF?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr><tr><td><a href="#p3">Étendoir chauffant simple</a></td><td>Petit budget</td><td>Non</td><td>À plat</td><td class="num">€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B0BJFJ3GTF?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr></tbody>
+      <tbody><tr><td><a class="tname" href="#p1"><span>Étendoir chauffant à étages avec housse</span></a></td><td>Meilleur choix</td><td>Oui</td><td>À plat</td><td class="num">€€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B0846GQHMJ?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr><tr><td><a class="tname" href="#p2"><span>Étendoir chauffant à ailes</span></a></td><td>Petit espace</td><td>Selon modèle</td><td>Ailes</td><td class="num">€€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B07932PZKF?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr><tr><td><a class="tname" href="#p3"><span>Étendoir chauffant simple</span></a></td><td>Petit budget</td><td>Non</td><td>À plat</td><td class="num">€</td><td><a class="btn btn-main btn-sm" href="https://www.amazon.fr/dp/B0BJFJ3GTF?tag=zerocorvee-21" rel="sponsored nofollow noopener" target="_blank">Voir sur Amazon</a></td></tr></tbody>
     </table></div>
   </section>
 
@@ -199,6 +199,30 @@
 <script>
 (function(){var b=document.getElementById('menu-btn'),n=document.getElementById('cats');
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
+(function(){var c=document.querySelector('[data-carousel]');if(!c)return;
+var t=c.querySelector('.car-track'),cards=[].slice.call(t.children),dots=c.querySelector('.car-dots'),
+rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,idx=0;
+cards.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){go(i)});dots.appendChild(d);});
+function center(el){return el.offsetLeft+el.offsetWidth/2-t.clientWidth/2;}
+function go(i){idx=(i+cards.length)%cards.length;t.scrollTo({left:center(cards[idx]),behavior:rm?'auto':'smooth'});}
+function paint(){var mid=t.scrollLeft+t.clientWidth/2,best=0,bd=1e9;
+cards.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=Math.abs(m-mid),k=Math.min(d/(el.offsetWidth*1.6),1);
+if(d<bd){bd=d;best=i;}
+if(!rm){el.style.transform='scale('+(1-k*.1).toFixed(3)+') rotateY('+((m<mid?1:-1)*k*10).toFixed(1)+'deg)';el.style.opacity=(1-k*.4).toFixed(2);}});
+idx=best;[].forEach.call(dots.children,function(d,i){d.className=i===best?'on':'';});}
+t.addEventListener('scroll',function(){window.requestAnimationFrame(paint);},{passive:true});
+window.addEventListener('resize',paint);
+c.querySelector('.prev').addEventListener('click',function(){go(idx-1);stop();});
+c.querySelector('.next').addEventListener('click',function(){go(idx+1);stop();});
+var down=false,sx=0,sl=0;
+t.addEventListener('pointerdown',function(ev){if(ev.pointerType!=='mouse')return;down=true;sx=ev.clientX;sl=t.scrollLeft;t.classList.add('drag');stop();});
+window.addEventListener('pointermove',function(ev){if(!down)return;t.scrollLeft=sl-(ev.clientX-sx);});
+window.addEventListener('pointerup',function(){if(!down)return;down=false;t.classList.remove('drag');go(idx);});
+t.addEventListener('click',function(ev){if(Math.abs(t.scrollLeft-sl)>8&&sx){ev.preventDefault();}sx=0;},true);
+function start(){if(rm||timer)return;timer=setInterval(function(){go(idx+1)},4200);}
+function stop(){clearInterval(timer);timer=null;}
+c.addEventListener('mouseenter',stop);c.addEventListener('mouseleave',start);c.addEventListener('focusin',stop);t.addEventListener('touchstart',stop,{passive:true});
+paint();t.scrollLeft=center(cards[Math.min(2,cards.length-1)]);paint();start();})();
 </script>
 </body>
 </html>

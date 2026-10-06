@@ -1,0 +1,38 @@
+# Télécharge les photos officielles des produits (liste dans img/sources.json),
+# les met sur fond blanc carré 640 px et les enregistre dans img/.
+name: photos-produits
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger et mettre sur fond blanc
+        run: |
+          set -u
+          sudo apt-get install -y -qq imagemagick >/dev/null 2>&1 || true
+          mkdir -p img tmp
+          ok=0; ko=0
+          jq -r '.[] | select(.url != null) | "\(.id)\t\(.url)"' img/sources.json > tmp/list.tsv
+          while IFS=$'\t' read -r id url; do
+            [ -f "img/$id.jpg" ] && continue
+            if curl -sfL --max-time 30 -A "Mozilla/5.0" -o "tmp/$id.src" "$url" \
+               && convert "tmp/$id.src[0]" -background white -alpha remove -alpha off -fuzz 4% -trim +repage \
+                    -resize 560x560 -gravity center -extent 640x640 -quality 84 -strip "img/$id.jpg"; then
+              ok=$((ok+1))
+            else
+              echo "ÉCHEC $id $url"; ko=$((ko+1)); rm -f "img/$id.jpg"
+            fi
+          done < tmp/list.tsv
+          echo "OK=$ok ÉCHECS=$ko"
+          ls img/*.jpg 2>/dev/null | sed 's#img/##; s#\.jpg$##' | jq -R . | jq -s . > img/available.json
+      - name: Enregistrer
+        run: |
+          git config user.name "jemueldefoi-del"
+          git config user.email "jemueldefoi@users.noreply.github.com"
+          git add img
+          git diff --cached --quiet || git commit -m "Photos produits officielles (fond blanc)"
+          git push

@@ -55,7 +55,8 @@
   <section class="block" aria-labelledby="h-loves">
     <div class="sec-head"><span class="idx">(01)</span><h2 id="h-loves">Les meilleurs appareils du moment</h2></div>
     <p class="prose muted">Notre premier choix dans chaque guide : le modèle qu'on achèterait pour nous.</p>
-    <div class="shops"><article class="shop" style="--c:#3355ff">
+    <div class="carousel" data-carousel>
+      <div class="car-track" tabindex="0" aria-label="Produits du moment, faites glisser"><article class="shop" style="--c:#3355ff">
   <div class="shop-vis"><svg class="art" viewBox="0 0 96 96" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse class="f" cx="48" cy="60" rx="34" ry="14"/><path d="M14 56c0-8 15-14 34-14s34 6 34 14v6c0 8-15 14-34 14S14 70 14 62z"/><ellipse cx="48" cy="56" rx="34" ry="14"/><circle cx="48" cy="52" r="5"/><path d="M30 72l-6 6M66 72l6 6"/></svg><span class="shop-badge">Robot aspirateur laveur</span></div>
   <div class="shop-body">
     <h3 translate="no">Roborock Qrevo S</h3>
@@ -128,6 +129,8 @@
     <a class="more" href="robot-piscine.html">Voir le comparatif</a>
   </div>
 </article></div>
+      <div class="car-actions"><button class="car-btn prev" type="button" aria-label="Produit précédent">←</button><span class="car-dots" aria-hidden="true"></span><button class="car-btn next" type="button" aria-label="Produit suivant">→</button></div>
+    </div>
   </section>
 
   <section class="block" aria-labelledby="h-chores">
@@ -218,6 +221,30 @@
 <script>
 (function(){var b=document.getElementById('menu-btn'),n=document.getElementById('cats');
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
+(function(){var c=document.querySelector('[data-carousel]');if(!c)return;
+var t=c.querySelector('.car-track'),cards=[].slice.call(t.children),dots=c.querySelector('.car-dots'),
+rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,idx=0;
+cards.forEach(function(_,i){var d=document.createElement('i');d.addEventListener('click',function(){go(i)});dots.appendChild(d);});
+function center(el){return el.offsetLeft+el.offsetWidth/2-t.clientWidth/2;}
+function go(i){idx=(i+cards.length)%cards.length;t.scrollTo({left:center(cards[idx]),behavior:rm?'auto':'smooth'});}
+function paint(){var mid=t.scrollLeft+t.clientWidth/2,best=0,bd=1e9;
+cards.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=Math.abs(m-mid),k=Math.min(d/(el.offsetWidth*1.6),1);
+if(d<bd){bd=d;best=i;}
+if(!rm){el.style.transform='scale('+(1-k*.1).toFixed(3)+') rotateY('+((m<mid?1:-1)*k*10).toFixed(1)+'deg)';el.style.opacity=(1-k*.4).toFixed(2);}});
+idx=best;[].forEach.call(dots.children,function(d,i){d.className=i===best?'on':'';});}
+t.addEventListener('scroll',function(){window.requestAnimationFrame(paint);},{passive:true});
+window.addEventListener('resize',paint);
+c.querySelector('.prev').addEventListener('click',function(){go(idx-1);stop();});
+c.querySelector('.next').addEventListener('click',function(){go(idx+1);stop();});
+var down=false,sx=0,sl=0;
+t.addEventListener('pointerdown',function(ev){if(ev.pointerType!=='mouse')return;down=true;sx=ev.clientX;sl=t.scrollLeft;t.classList.add('drag');stop();});
+window.addEventListener('pointermove',function(ev){if(!down)return;t.scrollLeft=sl-(ev.clientX-sx);});
+window.addEventListener('pointerup',function(){if(!down)return;down=false;t.classList.remove('drag');go(idx);});
+t.addEventListener('click',function(ev){if(Math.abs(t.scrollLeft-sl)>8&&sx){ev.preventDefault();}sx=0;},true);
+function start(){if(rm||timer)return;timer=setInterval(function(){go(idx+1)},4200);}
+function stop(){clearInterval(timer);timer=null;}
+c.addEventListener('mouseenter',stop);c.addEventListener('mouseleave',start);c.addEventListener('focusin',stop);t.addEventListener('touchstart',stop,{passive:true});
+paint();t.scrollLeft=center(cards[Math.min(2,cards.length-1)]);paint();start();})();
 </script>
 </body>
 </html>
