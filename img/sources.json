@@ -703,67 +703,23 @@
 "url": "https://image.darty.com/darty?type=image&source=/market/2024/04/03/22407155_3723_1.jpg"
 },
 {
-"id": "cand--domo-do7117dr--0",
-"url": "https://media2.hubo.be/img/DO7117DR-sechoir-electrique_05411397160553.jpg?base=derivates&s1=3&s2=001&s3=517&s4=134&name=05411397160553_C1N0_1000627.jpg"
-},
-{
-"id": "cand--domo-do7117dr--1",
-"url": "https://media2.hubo.be/img/DO7117DR-sechoir-electrique_05411397160553.jpg?base=derivates&s1=3&s2=001&s3=517&s4=133&name=05411397160553_C1R0_s01_1000627.jpg"
-},
-{
-"id": "cand--domo-do7117dr--2",
-"url": "https://media2.hubo.be/img/DO7117DR-sechoir-electrique_05411397160553.jpg?base=derivates&s1=3&s2=001&s3=517&s4=125&name=05411397160553_H1R0_1000627.jpg"
-},
-{
-"id": "cand--petsafe-lanceur-de-balle-automatique--0",
-"url": "https://cdn.shopify.com/s/files/1/0469/7935/0690/products/pty00-14665_b2_1.jpg?v=1600965103"
-},
-{
-"id": "cand--petsafe-lanceur-de-balle-automatique--1",
-"url": "https://static3.zoomalia.com/cdn-cgi/image/width=1200,height=1200,quality=100,format=auto/prod_img/35964/xl_748e135a9c52b1f2e0e2135a2635943e_st3.jpg"
-},
-{
-"id": "cand--petsafe-lanceur-de-balle-automatique--2",
-"url": "https://static3.zoomalia.com/cdn-cgi/image/width=1200,height=1200,quality=100,format=auto/prod_img/35964/xl_10c0a93bce7c76048abc8b4f8dfed98d_st3.jpg"
-},
-{
-"id": "cand--adler-ad-8051--0",
+"id": "adler-ad-8051",
 "url": "https://www.adler.com.pl/dane/zdjecia/ad_8051/1500_ad_8051.jpg"
 },
 {
-"id": "cand--adler-ad-8051--1",
-"url": "https://www.adler.com.pl/dane/zdjecia/ad_8051/1500_ad_8051_1.jpg"
+"id": "domo-do7117dr",
+"url": "https://media2.hubo.be/img/DO7117DR-sechoir-electrique_05411397160553.jpg?base=derivates&s1=3&s2=001&s3=517&s4=134&name=05411397160553_C1N0_1000627.jpg"
 },
 {
-"id": "cand--adler-ad-8051--2",
-"url": "https://www.adler.com.pl/dane/zdjecia/ad_8051/1500_ad_8051_2.jpg"
-},
-{
-"id": "cand--kitchen-move-artic-silver-50-l--0",
-"url": "https://cdn.shopify.com/s/files/1/0400/7991/7215/files/BAT-50LIBSSSILVERY6.jpg?v=1738142956"
-},
-{
-"id": "cand--kitchen-move-artic-silver-50-l--1",
-"url": "https://cdn.shopify.com/s/files/1/0400/7991/7215/files/BAT-50LIBSSSILVERY8.jpg?v=1738142956"
-},
-{
-"id": "cand--kitchen-move-artic-silver-50-l--2",
-"url": "https://cdn.shopify.com/s/files/1/0400/7991/7215/files/BAT-50LIBSSSILVERY7.jpg?v=1689603851"
-},
-{
-"id": "cand--kitchen-move-artic-silver-50-l--3",
+"id": "kitchen-move-artic-silver-50-l",
 "url": "https://medias-az-img.ubaldi.com/visuels/4976298/MA37CA275POUBGT55B-1453c2c86a-43-nw.jpg"
 },
 {
-"id": "cand--neakasa-m1-lite--0",
-"url": "https://cdn.shopify.com/s/files/1/0731/1156/8429/files/M1_Lite_2.jpg?v=1773050450"
-},
-{
-"id": "cand--neakasa-m1-lite--1",
-"url": "https://cdn.shopify.com/s/files/1/0731/1156/8429/files/M1_Lite_3.jpg?v=1773050450"
-},
-{
-"id": "cand--neakasa-m1-lite--2",
+"id": "neakasa-m1-lite",
 "url": "https://cdn.shopify.com/s/files/1/0731/1156/8429/files/m1_lite_plus_2.webp?v=1773050450"
+},
+{
+"id": "petsafe-lanceur-de-balle-automatique",
+"url": "https://cdn.shopify.com/s/files/1/0469/7935/0690/products/pty00-14665_b2_1.jpg?v=1600965103"
 }
 ]

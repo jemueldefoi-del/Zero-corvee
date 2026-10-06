@@ -389,11 +389,6 @@
   "title": "HOMCOM étendoir électrique chauffant 20 barres 2 ailes repliables 230W",
   "generic": true
  },
- "Étendoir chauffant simple": {
-  "asin": "B0BJFJ3GTF",
-  "title": "CELLUSTOP étendoir à linge électrique chauffant pliable 8 barres 120W",
-  "generic": true
- },
  "Philips PerfectCare": {
   "asin": "B09PYXMX5C",
   "title": "Philips PerfectCare 6000 centrale vapeur 8 bar 1,8L",
@@ -498,11 +493,6 @@
   "asin": "B00PG3LWDK",
   "title": "iFetch Original lanceur de balles automatique",
   "generic": false
- },
- "Lanceur mini (plusieurs marques)": {
-  "asin": "B0B9341ZRJ",
-  "title": "Pet Prime lanceur de balle automatique mini",
-  "generic": true
  },
  "Lanceur longue portée (plusieurs marques)": {
   "asin": "B0FJXNBSGR",
@@ -639,11 +629,6 @@
   "title": "Mini lave-linge pliable portable 1,5 kg",
   "generic": true
  },
- "Comfee mini lave-linge 0,8 kg": {
-  "asin": "B09PB91R9M",
-  "title": "Comfee mini lave-linge 0,8 kg",
-  "generic": false
- },
  "Beko B3T42239": {
   "asin": "B09X875RY1",
   "title": "Beko B3T42239 sèche-linge 8 kg pompe à chaleur",
@@ -687,11 +672,6 @@
  "SONGMICS LTB640B02 50 L": {
   "asin": "B0F2MQ283S",
   "title": "SONGMICS LTB640B02 50L",
-  "generic": false
- },
- "Amazon Basics 50 L à capteur": {
-  "asin": "B07MJ9NSC2",
-  "title": "Amazon Basics poubelle automatique inox 50 L",
   "generic": false
  },
  "Tefal Easy Rice 8in1 RK7321": {
@@ -779,11 +759,6 @@
   "title": "XQDKoon litière autonettoyante 65L+9L",
   "generic": false
  },
- "OHMG litière autonettoyante": {
-  "asin": "B0DFL75D7B",
-  "title": "OHMG litière autonettoyante",
-  "generic": false
- },
  "CATLINK Pro": {
   "asin": "B0CL45VPTD",
   "title": "CATLINK Pro litière autonettoyante 57 L",
@@ -792,6 +767,31 @@
  "Feelneedy litière autonettoyante 65 L": {
   "asin": "B0F4RDCQSM",
   "title": "Feelneedy litière autonettoyante 65 L",
+  "generic": false
+ },
+ "Domo DO7117DR": {
+  "asin": "B0DNB2YYB1",
+  "title": "Domo DO7117DR étendoir chauffant",
+  "generic": false
+ },
+ "PetSafe Lanceur de balle automatique": {
+  "asin": "B017N6IF5U",
+  "title": "PetSafe lanceur de balle automatique",
+  "generic": false
+ },
+ "Adler AD 8051": {
+  "asin": "B014HI8GME",
+  "title": "Adler AD 8051 mini lave-linge",
+  "generic": false
+ },
+ "Kitchen Move Artic Silver 50 L": {
+  "asin": "B091238NQD",
+  "title": "Kitchen Move poubelle automatique 50 L inox",
+  "generic": false
+ },
+ "Neakasa M1 Lite": {
+  "asin": "B0DG59SQ5P",
+  "title": "Neakasa M1 Lite litière autonettoyante ouverte",
   "generic": false
  }
 }
