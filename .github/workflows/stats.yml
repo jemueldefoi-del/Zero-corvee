@@ -12,6 +12,10 @@ jobs:
         env:
           TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
         run: |
+          mkdir -p out
+          if [ -z "$TOKEN" ]; then echo "secret GOATCOUNTER_TOKEN absent" > out/erreur.txt; exit 0; fi
+          code=$(curl -s -o out/test.json -w '%{http_code}' -H "Authorization: Bearer $TOKEN" "https://zerocorvee.goatcounter.com/api/v0/me")
+          if [ "$code" != "200" ]; then echo "GoatCounter HTTP $code : $(head -c 300 out/test.json)" > out/erreur.txt; exit 0; fi
           set -e
           API=https://zerocorvee.goatcounter.com/api/v0
           H="Authorization: Bearer $TOKEN"
@@ -25,7 +29,8 @@ jobs:
           curl -sf -H "$H" "$API/stats/hits?start=${d7}&end=${today}&limit=10" > out/pages7.json
           curl -sf -H "$H" "$API/stats/toprefs?start=${d7}&end=${today}&limit=10" > out/sources7.json || echo '{}' > out/sources7.json
           echo "$today" > out/date.txt
-      - uses: actions/upload-artifact@v4
+      - if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: stats
           path: out
