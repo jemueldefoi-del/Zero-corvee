@@ -1,0 +1,32 @@
+# Récupère les chiffres de visites GoatCounter (lancé par Claude à 7h et 22h).
+name: stats-visites
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lire GoatCounter
+        env:
+          TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: |
+          set -e
+          API=https://zerocorvee.goatcounter.com/api/v0
+          H="Authorization: Bearer $TOKEN"
+          today=$(TZ=Europe/Paris date +%F)
+          d7=$(TZ=Europe/Paris date -d '-6 days' +%F)
+          d30=$(TZ=Europe/Paris date -d '-29 days' +%F)
+          m1=$(TZ=Europe/Paris date +%Y-%m-01)
+          mkdir -p out
+          curl -sf -H "$H" "$API/stats/total?start=${d30}&end=${today}" > out/total30.json
+          curl -sf -H "$H" "$API/stats/total?start=${m1}&end=${today}" > out/mois.json
+          curl -sf -H "$H" "$API/stats/hits?start=${d7}&end=${today}&limit=10" > out/pages7.json
+          curl -sf -H "$H" "$API/stats/toprefs?start=${d7}&end=${today}&limit=10" > out/sources7.json || echo '{}' > out/sources7.json
+          echo "$today" > out/date.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stats
+          path: out
+          retention-days: 3
