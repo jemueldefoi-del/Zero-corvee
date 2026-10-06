@@ -62,7 +62,7 @@ def main():
                f"- **Image** : {name}.png",
                f"- **Tableau** : {cat['name']}",
                f"- **Titre** : {title} : {head.lower() if head[:1].isupper() and head[1:2].islower() else head}"[:100],
-               f"- **Description** : {g['desc']} Comparatif de {len(g['products'])} modèles.",
+               f"- **Description** : {g['desc']}",
                f"- **Lien** : {url(g['slug'])}{UTM}", ""]
     open(os.path.join(OUT, "epingles.md"), "w").write("\n".join(md))
     print(len(GUIDES), "épingles dans", OUT)
