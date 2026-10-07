@@ -13,14 +13,16 @@ jobs:
         env:
           TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
         run: |
+          set +e
           mkdir -p out
+          echo debut > out/codes.txt
           if [ -z "$TOKEN" ]; then echo "secret GOATCOUNTER_TOKEN absent" > out/erreur.txt; exit 0; fi
           API=https://zerocorvee.goatcounter.com/api/v0
           today=$(TZ=Europe/Paris date +%F)
           d7=$(TZ=Europe/Paris date -d '-6 days' +%F)
           d30=$(TZ=Europe/Paris date -d '-29 days' +%F)
           m1=$(TZ=Europe/Paris date +%Y-%m-01)
-          get() { code=$(curl -s -o "out/$1" -w '%{http_code}' -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" "$API/$2"); echo "$1 $code" >> out/codes.txt; }
+          get() { code=$(curl -sS -o "out/$1" -w '%{http_code}' -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" "$API/$2" 2>>out/curl-erreurs.txt) || true; echo "$1 $code" >> out/codes.txt; }
           get me.json "me"
           get total30.json "stats/total?start=${d30}T00:00:00Z&end=${today}T23:59:59Z"
           get mois.json "stats/total?start=${m1}T00:00:00Z&end=${today}T23:59:59Z"
