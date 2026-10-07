@@ -17,6 +17,7 @@ jobs:
           mkdir -p out
           echo debut > out/codes.txt
           if [ -z "$TOKEN" ]; then echo "secret GOATCOUNTER_TOKEN absent" > out/erreur.txt; exit 0; fi
+          TOKEN=$(printf %s "$TOKEN" | tr -d '[:space:]')
           API=https://zerocorvee.goatcounter.com/api/v0
           today=$(TZ=Europe/Paris date +%F)
           d7=$(TZ=Europe/Paris date -d '-6 days' +%F)
