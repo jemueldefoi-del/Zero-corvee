@@ -36,7 +36,7 @@ jobs:
           mkdir -p out && cd out
           rm -f me.json
           git init -q -b stats-data
-          git config user.name "jemueldefoi-del"
-          git config user.email "jemueldefoi@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A && git commit -qm "stats $(date -u +%FT%TZ)" --allow-empty
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" stats-data

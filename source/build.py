@@ -7,7 +7,7 @@ from icons import art
 from pages import STATIC_PAGES
 
 # À remplacer par le vrai nom de domaine une fois acheté.
-BASE = "https://jemueldefoi-del.github.io/Zero-corvee"
+BASE = "https://zero-corvee.github.io"
 SITE = "Zéro Corvée"
 UPDATED = "2026-10-06"
 UPDATED_FR = "6 octobre 2026"
@@ -51,6 +51,8 @@ def head(title, desc, slug, ld, og_type="article"):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://zerocorvee.goatcounter.com; connect-src 'self' https://zerocorvee.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url(slug)}">
@@ -68,7 +70,7 @@ def head(title, desc, slug, ld, og_type="article"):
 {FONTS}
 <link rel="stylesheet" href="style.css">
 {lds}
-<script data-goatcounter="https://zerocorvee.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://zerocorvee.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <a class="skip" href="#haut">Aller au contenu</a>
@@ -106,6 +108,7 @@ def footer():
   </div>
 </footer>
 <script>
+if(window.top!==window.self){{try{{window.top.location=window.self.location;}}catch(x){{document.documentElement.style.display='none';}}}}
 (function(){{var b=document.getElementById('menu-btn'),n=document.getElementById('cats');
 b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');}});}})();
 (function(){{var c=document.querySelector('[data-carousel]');if(!c)return;
