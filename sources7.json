@@ -1,0 +1,34 @@
+{
+  "stats": [
+    {
+      "name": "",
+      "count": 9,
+      "ref_scheme": "o"
+    },
+    {
+      "id": "Google",
+      "name": "Google",
+      "count": 1,
+      "ref_scheme": "g"
+    },
+    {
+      "id": "github.com",
+      "name": "github.com",
+      "count": 1,
+      "ref_scheme": "h"
+    },
+    {
+      "id": "jemueldefoi-del.github.io/Zero-corvee",
+      "name": "jemueldefoi-del.github.io/Zero-corvee",
+      "count": 1,
+      "ref_scheme": "h"
+    },
+    {
+      "id": "jemueldefoi-del.github.io/Zero-corvee/index.html",
+      "name": "jemueldefoi-del.github.io/Zero-corvee/index.html",
+      "count": 1,
+      "ref_scheme": "h"
+    }
+  ],
+  "more": false
+}
